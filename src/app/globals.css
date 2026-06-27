@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-maroon-royal: #3d0c11;
+  --color-maroon-dark: #2c080b;
+  --color-maroon-deep: #1b0204;
+  --color-gold-antique: #b89047;
+  --color-gold-light: #d6af65;
+  --color-gold-dark: #8c672b;
+  --color-parchment-base: #f7f1e3;
+  --color-parchment-light: #fcf9f2;
+  --color-parchment-dark: #e9e0cd;
+  
+  --color-walnut-brown: #4d3626;
+  --color-ivory: #fffff0;
+  --color-forest-green: #2d4c3b;
+  --color-copper: #b87333;
+
+  --color-text-dark: #2c080b;
+  --color-text-muted: #5a4b40;
+  --color-text-gold: #b89047;
+  --color-text-white: #fcf9f2;
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-color: var(--color-parchment-base);
+    color: var(--color-text-dark);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-maroon-deep);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gold-antique);
+    border: 1px solid var(--color-maroon-deep);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold-light);
+  }
+
+  /* Typography Defaults */
+  h1, h2, h3, h4, h5, h6, .serif-font {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: var(--color-maroon-royal);
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-text-white transition-colors hover:text-gold-light;
+  }
+
+  .header-action-btn {
+    @apply flex flex-col items-center justify-center gap-1 transition-colors;
+  }
+
+  .header-action-label {
+    @apply font-sans text-[9px] uppercase tracking-[0.05em] text-text-white/70 group-hover:text-text-white transition-colors;
+  }
+
+  /* Backgrounds */
+  .bg-pattern-maroon {
+    background-color: var(--color-maroon-deep);
+  }
+
+  .bg-pattern-parchment {
+    background-color: var(--color-parchment-base);
+  }
+
+  .ornate-border-top {
+    position: relative;
+  }
+  .ornate-border-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 12H0L20 0z' fill='%23b89047' fill-opacity='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    z-index: 10;
+  }
+
+  .ornate-border-bottom {
+    position: relative;
+  }
+  .ornate-border-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 12L0 0h40L20 12z' fill='%23b89047' fill-opacity='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    z-index: 10;
+  }
+
+  .divider-ornate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .divider-ornate::before,
+  .divider-ornate::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    background-color: var(--color-gold-antique);
+  }
+  .divider-ornate-icon {
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+    border: 1px solid var(--color-gold-antique);
+    margin: 0 12px;
+    position: relative;
+  }
+  .divider-ornate-icon::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: var(--color-gold-antique);
+  }
+
+  /* Button Variants */
+  .btn-primary {
+    @apply inline-block px-8 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.15em] text-text-white bg-maroon-dark border-[1.5px] border-gold-antique transition-all duration-300 hover:bg-maroon-royal hover:border-gold-light hover:text-gold-light hover:-translate-y-0.5;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 font-sans text-[10px] font-bold uppercase tracking-widest text-gold-dark transition-colors hover:text-maroon-royal;
+  }
+}
