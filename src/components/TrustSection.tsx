@@ -72,7 +72,9 @@ export default function TrustSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="pt-16 pb-8 bg-[#fcfaf5] relative overflow-hidden" style={{ backgroundImage: "url('/assets/images/bg_pattern_light.png')", backgroundSize: '400px', backgroundRepeat: 'repeat', backgroundBlendMode: 'multiply' }}>
+    <section ref={containerRef} className="pt-16 pb-8 bg-sand-light relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-luxury-pattern opacity-[0.03] pointer-events-none" />
       
       {/* Intricate Left/Right Background Borders */}
       <div className="absolute top-0 left-2 bottom-0 w-8 opacity-20 pointer-events-none flex flex-col justify-between py-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'20\' height=\'40\' viewBox=\'0 0 20 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M10 0 C20 10, 20 30, 10 40 C0 30, 0 10, 10 0 Z\' fill=\'none\' stroke=\'%23b89047\' stroke-width=\'1\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat-y' }}></div>
@@ -80,15 +82,15 @@ export default function TrustSection() {
 
       <div className="max-w-[1400px] mx-auto px-4 lg:px-12 relative z-10">
         {/* Top half of the unified border box */}
-        <div className="border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#cba358]/50 p-1.5 relative shadow-sm" style={{ backgroundImage: "url('/assets/images/bg_pattern_light.png')", backgroundSize: '300px', backgroundRepeat: 'repeat', backgroundBlendMode: 'multiply' }}>
-          <div className="border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-[#cba358]/30 p-8 md:p-12 relative bg-[#fdfaf4]/90 backdrop-blur-sm">
+        <div className="border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-sand-medium p-1.5 relative shadow-sm">
+          <div className="border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-sand-medium/60 p-8 md:p-12 relative bg-white/95 backdrop-blur-sm">
             
             <div className="flex flex-col xl:flex-row gap-12 xl:gap-0 justify-between items-stretch">
               
               {/* Left: Journey Stepper */}
               <div className="flex-1 xl:pr-10">
                 <div className="flex items-center justify-center gap-4 mb-12">
-                  <h2 className="font-serif text-[17px] text-[#3d0c11] font-semibold text-center tracking-[0.2em] uppercase">
+                  <h2 className="font-serif text-[19px] text-text-dark font-bold text-center tracking-[0.25em] uppercase">
                     FROM KASHMIR&apos;S FIELDS TO YOUR HOME
                   </h2>
                 </div>
@@ -98,12 +100,12 @@ export default function TrustSection() {
                     <div key={index} className="flex flex-row items-center w-full">
                       <div className="journey-step flex flex-col items-center gap-5 group text-center z-10 w-28 cursor-pointer">
                         {/* Premium Double Ring Circle */}
-                        <div className="w-[84px] h-[84px] rounded-full border-[1.5px] border-[#cba358] bg-[#fcfaf5] flex items-center justify-center shadow-md relative overflow-hidden p-1 transition-transform duration-500 group-hover:scale-110">
-                          <div className="w-full h-full rounded-full border-[1px] border-[#cba358]/50 bg-[#fffdf9] flex items-center justify-center overflow-hidden transition-colors duration-500 group-hover:bg-[#fbf5e9]">
+                        <div className="w-[84px] h-[84px] rounded-full border-[1.5px] border-sand-medium bg-sand-light flex items-center justify-center shadow-sm relative overflow-hidden p-1 transition-transform duration-500 group-hover:scale-110 group-hover:border-gold-antique">
+                          <div className="w-full h-full rounded-full border-[1px] border-sand-medium/40 bg-white flex items-center justify-center overflow-hidden transition-colors duration-500 group-hover:bg-sand-light">
                             <step.icon />
                           </div>
                         </div>
-                        <span className="font-serif text-[12px] font-semibold text-[#3d0c11] leading-snug px-1 transition-colors group-hover:text-[#8c672b]">
+                        <span className="font-serif text-[13.5px] font-bold text-text-dark leading-snug px-1 transition-colors group-hover:text-terracotta tracking-wide">
                           {step.label}
                         </span>
                       </div>
@@ -111,7 +113,7 @@ export default function TrustSection() {
                       {/* Detailed SVG Arrow between steps */}
                       {index < steps.length - 1 && (
                         <div className="journey-arrow flex-1 flex justify-center -translate-y-6 opacity-60">
-                          <svg viewBox="0 0 100 20" className="w-full h-5 stroke-[#cba358]" preserveAspectRatio="none">
+                          <svg viewBox="0 0 100 20" className="w-full h-5 stroke-gold-antique" preserveAspectRatio="none">
                             <path d="M0,10 L95,10 M90,5 L95,10 L90,15" fill="none" strokeWidth="1" />
                           </svg>
                         </div>
@@ -124,22 +126,22 @@ export default function TrustSection() {
               {/* Right: Promise Grid */}
               <div className="flex-1 xl:pl-10 mt-12 xl:mt-0">
                 <div className="flex items-center justify-center gap-4 mb-12">
-                  <h2 className="font-serif text-[17px] text-[#3d0c11] font-semibold text-center tracking-[0.2em] uppercase">
+                  <h2 className="font-serif text-[19px] text-text-dark font-bold text-center tracking-[0.25em] uppercase">
                     THE KASHMIR PROMISE
                   </h2>
                 </div>
                 
                 <div ref={promisesRef} className="flex flex-row justify-between items-start w-full gap-4">
                   {promises.map((promise, index) => (
-                    <div key={index} className="promise-card flex flex-col items-center text-center gap-5 flex-1 p-3 transition-transform duration-500 hover:-translate-y-2 group cursor-pointer">
-                      <div className="h-[72px] w-[72px] flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 overflow-hidden rounded-full shadow-sm bg-[#fffdf9] border border-[#cba358]/30 p-1">
+                    <div key={index} className="promise-card flex flex-col items-center text-center gap-5 flex-1 p-4 transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer border border-transparent hover:border-gold-antique/20 hover:bg-sand-light/20 rounded-sm">
+                      <div className="h-[72px] w-[72px] flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 overflow-hidden rounded-full shadow-sm bg-white border border-sand-medium p-1 group-hover:border-gold-antique">
                         <promise.icon />
                       </div>
                       <div className="flex flex-col items-center gap-2">
-                        <h3 className="font-serif text-[13px] font-bold text-[#3d0c11] uppercase tracking-[0.1em] leading-tight border-b border-transparent transition-colors group-hover:border-[#cba358]/50 pb-1">
+                        <h3 className="font-serif text-[14.5px] font-extrabold text-text-dark uppercase tracking-[0.12em] leading-tight border-b border-transparent transition-colors group-hover:border-gold-antique/50 pb-1">
                           {promise.title}
                         </h3>
-                        <p className="font-sans text-[11px] text-[#5a4b40] leading-snug px-1">
+                        <p className="font-sans text-[12px] text-text-muted leading-relaxed px-1">
                           {promise.desc}
                         </p>
                       </div>
@@ -151,7 +153,7 @@ export default function TrustSection() {
             </div>
             
             {/* Horizontal Middle Line Divider connecting to the bottom section */}
-            <div className="absolute bottom-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-[#cba358]/10 via-[#cba358]/60 to-[#cba358]/10 transform translate-y-[1px] z-20"></div>
+            <div className="absolute bottom-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-sand-medium/10 via-sand-medium/60 to-sand-medium/10 transform translate-y-[1px] z-20"></div>
             
           </div>
         </div>

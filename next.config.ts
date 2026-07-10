@@ -1,10 +1,11 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  // Ensure Vercel treats this as a server‑rendered Next app
-  output: 'standalone',
-  // Uncomment and set if you need absolute URLs for OG/Twitter images
-  // metadataBase: new URL('https://kashmir-cart.vercel.app'),
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  }
 };
 
 export default nextConfig;

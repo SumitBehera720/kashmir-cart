@@ -2,9 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { CheckCircle } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -12,161 +13,135 @@ if (typeof window !== "undefined") {
 
 export default function HeritageStory() {
   const sectionRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const imgLeftRef = useRef<HTMLDivElement>(null);
-  const imgRightRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Fade in text from bottom
-      gsap.fromTo(
-        textRef.current,
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        imgLeftRef.current,
-        { x: -40, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        imgRightRef.current,
-        { x: 40, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power2.out",
-          delay: 0.2,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(contentRef, { once: false, margin: "-100px" });
 
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-pattern-parchment relative overflow-hidden border-y-[6px] border-[#3d0c11]/20 shadow-inner"
+      className="py-24 bg-maroon-dark text-white relative overflow-hidden border-b border-gold-antique/20"
     >
-      {/* Decorative Corner Florals (SVG outlines matching the reference) */}
-      <div className="absolute top-0 left-0 w-48 h-48 opacity-40 pointer-events-none">
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[#8c672b] stroke-[0.5]">
-          <path d="M0,20 C30,20 40,0 60,10 C80,20 70,40 90,40 C100,40 100,100 100,100" />
-          <path d="M0,40 C20,40 30,20 50,30 C70,40 60,60 80,60 C90,60 90,100 90,100" />
-          {/* Leaves */}
-          <path d="M20,20 C30,30 20,40 20,20 Z" fill="#8c672b" opacity="0.2" />
-          <path d="M40,30 C50,40 40,50 40,30 Z" fill="#8c672b" opacity="0.2" />
-          <path d="M60,40 C70,50 60,60 60,40 Z" fill="#8c672b" opacity="0.2" />
-        </svg>
-      </div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-40 pointer-events-none origin-bottom-left rotate-[-90deg] translate-y-[20%]">
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[#8c672b] stroke-[0.5]">
-          <path d="M0,20 C30,20 40,0 60,10 C80,20 70,40 90,40 C100,40 100,100 100,100" />
-          <path d="M0,40 C20,40 30,20 50,30 C70,40 60,60 80,60 C90,60 90,100 90,100" />
-        </svg>
-      </div>
-      <div className="absolute top-0 right-0 w-56 h-56 opacity-40 pointer-events-none origin-top-right rotate-[90deg]">
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[#8c672b] stroke-[0.5]">
-          <path d="M0,20 C30,20 40,0 60,10 C80,20 70,40 90,40 C100,40 100,100 100,100" />
-          <path d="M0,40 C20,40 30,20 50,30 C70,40 60,60 80,60 C90,60 90,100 90,100" />
-        </svg>
-      </div>
+      {/* Decorative background grid texture */}
+      <div className="absolute inset-0 bg-luxury-pattern opacity-[0.03] pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Artisan Image */}
-          <div ref={imgLeftRef} className="w-full md:w-[35%] relative">
-            <div className="relative aspect-[4/3] md:aspect-[1/1] w-full">
-              {/* Torn edge effect via CSS mask if supported, otherwise just a soft irregular border radius */}
-              <div 
-                className="absolute inset-0 overflow-hidden" 
-                style={{ 
-                  borderRadius: "8% 12% 5% 15% / 10% 8% 15% 12%",
-                  boxShadow: "0 0 0 3px rgba(140, 103, 43, 0.2), inset 0 0 20px rgba(0,0,0,0.5)"
-                }}
+          {/* Left Column: Text & Story (60% width) */}
+          <div ref={contentRef} className="lg:col-span-7 flex flex-col justify-center space-y-6 text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="font-sans text-[13px] font-bold uppercase tracking-[0.35em] text-gold-light">
+                OUR HERITAGE
+              </span>
+            </motion.div>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-serif text-4xl md:text-5.5xl text-white leading-tight font-semibold"
+            >
+              A Legacy Carved <br />in the Mountains
+            </motion.h2>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="font-sans text-[15px] text-white/80 leading-relaxed max-w-xl"
+            >
+              From the fertile fields of Pampore to the rugged highlands of the Himalayas, we bridge the gap between Kashmir&apos;s finest artisans and you. Our mission is to preserve these centuries-old traditions while ensuring fair livelihoods.
+            </motion.p>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="font-sans text-[15px] text-white/80 leading-relaxed max-w-xl"
+            >
+              For generations, our partner families have harvested these premium ingredients, ensuring each batch is selected for its peak potency and purity. Every product carries the story, culture, and craftsmanship of Kashmir.
+            </motion.p>
+ 
+            {/* Stats Block (3 columns) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="grid grid-cols-3 gap-6 pt-8 max-w-lg border-t border-gold-antique/30"
+            >
+              <div>
+                <span className="font-serif text-4xl md:text-5.5xl font-bold text-gold-light block text-glow-gold">250+</span>
+                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1">
+                  Farmers Partnered
+                </span>
+              </div>
+              <div>
+                <span className="font-serif text-4xl md:text-5.5xl font-bold text-gold-light block text-glow-gold">100%</span>
+                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1">
+                  Pure & Certified
+                </span>
+              </div>
+              <div>
+                <span className="font-serif text-4xl md:text-5.5xl font-bold text-gold-light block text-glow-gold">12</span>
+                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1">
+                  Global Awards
+                </span>
+              </div>
+            </motion.div>
+ 
+            {/* Lab Certified Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="pt-6"
+            >
+              <motion.div 
+                animate={{ y: [0, -4, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="inline-flex items-center gap-4 bg-maroon-deep/90 border border-gold-antique/40 p-6 shadow-xl rounded-sm max-w-md hover:border-gold-light/40 transition-colors"
               >
+                <CheckCircle className="w-6 h-6 text-gold-light flex-shrink-0" />
+                <div className="text-left">
+                  <span className="font-serif text-[14px] font-bold text-gold-light uppercase tracking-wider block">
+                    Lab Certified Saffron
+                  </span>
+                  <span className="font-sans text-[11px] text-white/80 leading-tight block mt-1">
+                    Every batch is tested in government-approved laboratories for purity, safranal, and crocin levels.
+                  </span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+ 
+          {/* Right Column: Artisan Image (40% width) */}
+          <div ref={imageRef} className="lg:col-span-5 relative w-full flex justify-center">
+            {/* Aspect ratio vertical box for vertical image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98, y: 15 }}
+              animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative aspect-[3/4] w-full max-w-[380px] border border-gold-antique/30 p-2.5 bg-maroon-deep shadow-2xl group rounded-sm"
+            >
+              <div className="relative w-full h-full overflow-hidden border border-gold-antique/20 rounded-sm">
                 <Image
-                  src="/assets/images/artisan_woodcarver.png"
-                  alt="Kashmiri artisan carving intricate wooden box"
+                  src="/assets/images/artisan_woodcarverr.png"
+                  alt="Kashmiri artisan in mountains"
                   fill
-                  className="object-cover scale-105"
+                  className="object-cover grayscale brightness-95 contrast-105 group-hover:scale-103 transition-transform duration-700"
                 />
               </div>
-              {/* Optional rough edge overly */}
-              <div className="absolute inset-0 border-[4px] border-[#fdfaf4] opacity-50 mix-blend-overlay" style={{ borderRadius: "8% 12% 5% 15% / 10% 8% 15% 12%" }} />
-            </div>
+              {/* Luxury Frame Corner Ornaments */}
+              <div className="absolute top-0 left-0 w-6 h-6 border-t-[1.5px] border-l-[1.5px] border-gold-light m-3 pointer-events-none" />
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b-[1.5px] border-r-[1.5px] border-gold-light m-3 pointer-events-none" />
+            </motion.div>
           </div>
-
-          {/* Center Text Content */}
-          <div ref={textRef} className="w-full md:w-[30%] text-center flex flex-col items-center">
-            <span className="font-serif text-[12px] font-semibold uppercase text-[#3d0c11] tracking-widest mb-3 opacity-90">
-              THE SOUL OF KASHMIR
-            </span>
-            <h2 className="font-serif text-[32px] md:text-[38px] text-[#2c080b] mb-6 leading-[1.1] font-semibold tracking-wide">
-              Born In The Valley Of Kashmir
-            </h2>
-            
-            <p className="font-serif text-[17px] text-[#2c080b] mb-6 leading-relaxed max-w-sm mx-auto font-medium">
-              Where centuries-old traditions meet<br/>natural purity.
-            </p>
-            
-            <p className="font-serif text-[17px] text-[#2c080b] mb-10 leading-relaxed max-w-sm mx-auto font-medium">
-              Every product carries the story,<br/>culture, and craftsmanship of Kashmir.
-            </p>
-
-            {/* Custom Button matching screenshot */}
-            <Link
-              href="/our-story"
-              className="relative inline-flex items-center justify-center bg-[#2c080b] text-[#d6af65] border-[1.5px] border-[#d6af65] px-10 py-3.5 transition-all hover:bg-[#3d0c11] hover:scale-105 group"
-            >
-              {/* Inner outline */}
-              <div className="absolute inset-1 border-[1px] border-[#d6af65]/40 pointer-events-none"></div>
-              
-              <span className="font-sans text-[11px] font-semibold uppercase tracking-widest relative z-10">
-                KNOW OUR STORY
-              </span>
-            </Link>
-          </div>
-
-          {/* Right Map Image */}
-          <div ref={imgRightRef} className="w-full md:w-[35%] relative">
-            <div className="relative aspect-[5/4] w-full">
-              <Image
-                src="/assets/images/kashmir_outline_mapp.png"
-                alt="Illustrated map of Kashmir showing Srinagar, Gulmarg, Pahalgam"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-
+ 
         </div>
       </div>
     </section>

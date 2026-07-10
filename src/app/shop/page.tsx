@@ -1,4 +1,4 @@
-import { mockProducts } from "@/data/mockProducts";
+import { fetchProducts } from "@/data/api";
 import ProductCard from "@/components/ProductCard";
 import { Metadata } from "next";
 
@@ -7,7 +7,9 @@ export const metadata: Metadata = {
   description: "Browse our premium collection of authentic Kashmiri products. 100% natural, GI-tagged saffron, organic honey, royal Kahwa, and Mamra almonds.",
 };
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  const products = await fetchProducts().catch(() => []);
+
   return (
     <div className="pt-28 pb-24 bg-parchment-base min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
@@ -29,7 +31,7 @@ export default function ShopPage() {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {mockProducts.map((product) => (
+          {products.map((product: any) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

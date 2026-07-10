@@ -25,6 +25,29 @@ export const mockProducts: Product[] = [
     }
   },
   {
+    id: "shilajit-1",
+    sku: "KSH-SHI-001",
+    name: "Pure Himalayan Shilajit Resin (20g)",
+    slug: "pure-himalayan-shilajit-resin",
+    brand: "Kashmir Heritage",
+    description: "Authentic, purified high-altitude Himalayan Shilajit resin. Rich in fulvic acid and trace minerals for natural energy and strength.",
+    category: "Shilajit",
+    images: ["/assets/images/category_shilajit.png"],
+    price: 1499,
+    currency: "INR",
+    availability: "in_stock",
+    benefits: ["Boosts energy and stamina", "Rich in fulvic acid and 80+ minerals", "Supports cognitive function and anti-aging"],
+    ingredients: ["100% Purified Shilajit Resin"],
+    origin: "Himalayas, Kashmir, India",
+    usage: "Dissolve a pea-sized portion in warm water, milk, or green tea and consume in the morning.",
+    shippingInformation: "Ships within 24 hours. Free delivery.",
+    seo: {
+      title: "Buy Pure Himalayan Shilajit Resin | Kashmir Heritage",
+      description: "Get 100% pure lab-tested Himalayan Shilajit resin. Rich in fulvic acid. Direct from source.",
+      keywords: ["Himalayan Shilajit", "Shilajit Resin", "Pure Shilajit"]
+    }
+  },
+  {
     id: "kahwa-1",
     sku: "KSH-KAH-001",
     name: "Kashmiri Kahwa Tea (100g)",

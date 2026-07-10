@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="600" version="1.1">
+ <g fill="none" stroke-width="5">
+  <path d="m90.69 348.42 99.407 99.407" stroke="#000"/>
+  <path d="m90.69 447.83 99.407-99.407" stroke="#000"/>
+  <rect x="65.394" y="67.72" width="150" height="150" stroke="#00a651"/>
+  <rect x="284.61" y="67.72" width="150" height="150" stroke="#944a28"/>
+  <rect x="65.394" y="323.13" width="150" height="150" stroke="#000"/>
+  <rect x="284.61" y="323.13" width="150" height="150" stroke="#944a28"/>
+ </g>
+ <circle cx="140.39" cy="142.72" r="50" fill="#00a651"/>
+ <path d="m305.63 189.49h107.96l-53.981-93.539z" fill="#944a28"/>
+ <circle cx="359.61" cy="398.13" r="50" fill="#944a28"/>
+ <g font-family="'Liberation Sans'" font-size="20px" font-weight="bold" text-anchor="middle">
+  <switch transform="translate(141 252)" fill="#00a651">
+   <text systemLanguage="de" id="trsvg23"><tspan id="trsvg1">VEGETARISCH</tspan></text>
+   <text systemLanguage="en" id="trsvg24"><tspan id="trsvg2">VEGETARIAN</tspan></text>
+   
+  <text id="trsvg25-id" systemLanguage="id"><tspan id="trsvg3-id">VEGETARIAN</tspan></text><text id="trsvg25"><tspan id="trsvg3">VEGETARIAN</tspan></text></switch>
+  <switch transform="translate(360 507.41)" fill="#944a28">
+   <text systemLanguage="de" id="trsvg26"><tspan id="trsvg4">NICHT VEGETARISCH</tspan><tspan x="0" y="20" id="trsvg5">(veraltet)</tspan></text>
+   <text systemLanguage="en" id="trsvg27"><tspan id="trsvg6">NON VEGETARIAN</tspan><tspan x="0" y="20" id="trsvg7">(old)</tspan></text>
+   
+  <text id="trsvg28-id" systemLanguage="id"><tspan id="trsvg8-id">NONVEGETARIAN</tspan><tspan x="0" y="20" id="trsvg9-id">(dulu)</tspan></text><text id="trsvg28"><tspan id="trsvg8">NON VEGETARIAN</tspan><tspan x="0" y="20" id="trsvg9">(old)</tspan></text></switch>
+  <switch transform="translate(141,507.41)">
+   <text systemLanguage="de" id="trsvg29"><tspan id="trsvg10">NICHT ZUM</tspan><tspan x="0" y="20" id="trsvg11">MENSCHLICHEN</tspan><tspan x="0" y="40" id="trsvg12">VERZEHR BESTIMMT</tspan></text>
+   <text systemLanguage="en" id="trsvg30"><tspan id="trsvg13">NOT FOR HUMAN</tspan><tspan x="0" y="20" id="trsvg14">CONSUMPTION</tspan></text>
+   
+  <text id="trsvg31-id" systemLanguage="id"><tspan id="trsvg15-id">BUKAN UNTUK</tspan><tspan x="0" y="20" id="trsvg16-id">KONSUMSI MANUSIA</tspan></text><text id="trsvg31"><tspan id="trsvg15">NOT FOR HUMAN</tspan><tspan x="0" y="20" id="trsvg16">CONSUMPTION</tspan></text></switch>
+  <switch transform="translate(360 252)" fill="#944a28">
+   <text systemLanguage="de" id="trsvg32"><tspan id="trsvg17">NICHT VEGETARISCH</tspan><tspan x="0" y="20" id="trsvg18">(aktuell)</tspan></text>
+   <text systemLanguage="en" id="trsvg33"><tspan id="trsvg19">NON VEGETARIAN</tspan><tspan x="0" y="20" id="trsvg20">(current)</tspan></text>
+   
+  <text id="trsvg34-id" systemLanguage="id"><tspan id="trsvg21-id">NONVEGETARIAN</tspan><tspan x="0" y="20" id="trsvg22-id">(sekarang)</tspan></text><text id="trsvg34"><tspan id="trsvg21">NON VEGETARIAN</tspan><tspan x="0" y="20" id="trsvg22">(current)</tspan></text></switch>
+ </g>
+</svg>

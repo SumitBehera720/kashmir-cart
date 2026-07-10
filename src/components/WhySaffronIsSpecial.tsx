@@ -1,172 +1,206 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { motion, AnimatePresence } from "framer-motion";
+import { ShieldCheck, Sparkles } from "lucide-react";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
+interface Compound {
+  id: string;
+  name: string;
+  chemical: string;
+  potency: string;
+  role: string;
+  description: string;
+  spot: { x: string; y: string; label: string };
 }
 
-// Intricate SVG Icons replacing simple lucide-react ones
-const OriginIcon = () => (
-  <svg viewBox="0 0 64 64" className="w-10 h-10 stroke-[#cba358] fill-none" strokeWidth="1.5">
-    <path d="M32 8 C32 8, 12 28, 12 40 C12 52, 22 60, 32 60 C42 60, 52 52, 52 40 C52 28, 32 8, 32 8 Z" fill="#b89047" fillOpacity="0.1" />
-    <circle cx="32" cy="40" r="8" />
-    <path d="M32 40 L32 20" strokeWidth="2" />
-    <path d="M26 30 L32 20 L38 30" />
-  </svg>
-);
-
-const BenefitsIcon = () => (
-  <svg viewBox="0 0 64 64" className="w-10 h-10 stroke-[#cba358] fill-none" strokeWidth="1.5">
-    <circle cx="32" cy="32" r="24" strokeDasharray="2 4" />
-    <path d="M32 16 L36 28 L48 32 L36 36 L32 48 L28 36 L16 32 L28 28 Z" fill="#b89047" fillOpacity="0.2" />
-    <circle cx="32" cy="32" r="4" fill="#cba358" stroke="none" />
-  </svg>
-);
-
-const TraditionIcon = () => (
-  <svg viewBox="0 0 64 64" className="w-10 h-10 stroke-[#cba358] fill-none" strokeWidth="1.5">
-    <path d="M32 8 C40 20, 56 24, 56 40 C56 52, 44 60, 32 60 C20 60, 8 52, 8 40 C8 24, 24 20, 32 8 Z" />
-    <path d="M32 60 L32 24" strokeWidth="2" />
-    <path d="M16 40 C20 36, 28 36, 32 40" />
-    <path d="M48 40 C44 36, 36 36, 32 40" />
-    <path d="M20 48 C24 44, 28 44, 32 48" />
-    <path d="M44 48 C40 44, 36 44, 32 48" />
-  </svg>
-);
-
-const StarIcon = () => (
-  <svg viewBox="0 0 64 64" className="w-10 h-10 stroke-[#cba358] fill-none" strokeWidth="1.5">
-    <path d="M32 8 L38 24 L56 24 L42 34 L48 52 L32 42 L16 52 L22 34 L8 24 L26 24 Z" fill="#b89047" fillOpacity="0.1" />
-    <circle cx="32" cy="32" r="10" />
-    <circle cx="32" cy="32" r="4" fill="#cba358" stroke="none" />
-  </svg>
-);
-
-const GuideIcon = () => (
-  <svg viewBox="0 0 64 64" className="w-10 h-10 stroke-[#cba358] fill-none" strokeWidth="1.5">
-    <path d="M12 24 C12 24, 32 16, 52 24 L48 56 C48 56, 32 62, 16 56 Z" fill="#b89047" fillOpacity="0.1" />
-    <path d="M12 24 C12 24, 32 32, 52 24" />
-    <path d="M32 8 L32 28" strokeWidth="2" />
-    <path d="M26 14 L32 8 L38 14" />
-  </svg>
-);
-
-const QualityIcon = () => (
-  <svg viewBox="0 0 64 64" className="w-10 h-10 stroke-[#cba358] fill-none" strokeWidth="1.5">
-    <path d="M32 8 L52 16 L52 32 C52 48, 32 60, 32 60 C32 60, 12 48, 12 32 L12 16 Z" fill="#b89047" fillOpacity="0.1" />
-    <circle cx="32" cy="30" r="8" />
-    <path d="M28 30 L31 33 L38 26" strokeWidth="2" />
-  </svg>
-);
-
-const features = [
-  { icon: OriginIcon, title: "ORIGIN", desc: "The finest saffron from Kashmir valleys." },
-  { icon: BenefitsIcon, title: "BENEFITS", desc: "Rich in antioxidants and natural goodness." },
-  { icon: TraditionIcon, title: "TRADITIONAL USES", desc: "Used in Ayurveda, Kahwa and more." },
-  { icon: StarIcon, title: "HOW TO IDENTIFY PURE SAFFRON", desc: "Tips to identify original Kashmiri saffron." },
-  { icon: GuideIcon, title: "STORAGE GUIDE", desc: "How to store saffron the right way." },
-  { icon: QualityIcon, title: "QUALITY ASSURANCE", desc: "100% pure and lab tested quality." },
+const COMPOUNDS: Compound[] = [
+  {
+    id: "crocin",
+    name: "CROCIN",
+    chemical: "Natural Color Carotenoid",
+    potency: "250+ Color Index",
+    role: "The signature deep crimson painting power & mood booster.",
+    description: "Kashmiri saffron boasts a crocin value exceeding 250, compared to commercial varieties at ~180. This gives our Mongra strands their deep red hue and superior coloring capacity, while acting as a natural serotonin regulator to enhance mood.",
+    spot: { x: "75%", y: "25%", label: "Strand Tip: Crocin" }
+  },
+  {
+    id: "safranal",
+    name: "SAFRANAL",
+    chemical: "Volatile Aroma Compound",
+    potency: "80+ Aroma Index",
+    role: "Preserves the complex, earthy scent with sweet honey notes.",
+    description: "Harvested strictly at dawn before the sun can evaporate the volatile oils, our saffron retains its high concentration of Safranal. This preserves the intense honey-hay aroma that defines authentic Kashmiri provenance.",
+    spot: { x: "48%", y: "45%", label: "Strand Body: Safranal" }
+  },
+  {
+    id: "picrocrocin",
+    name: "PICROCROCIN",
+    chemical: "Bitter Glucoside Compound",
+    potency: "95+ Purity Rating",
+    role: "Delivers the earth-sweet, therapeutic taste profile.",
+    description: "Responsible for the unique bittersweet flavor, picrocrocin is an organic compound that also serves as a potent digestive aid. Kashmir's rich mineral-heavy soils yield the highest concentrations of this therapeutic compound.",
+    spot: { x: "25%", y: "70%", label: "Strand Base: Picrocrocin" }
+  }
 ];
 
 export default function WhySaffronIsSpecial() {
+  const [activeId, setActiveId] = useState<string>("crocin");
   const containerRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate Left Image
-      if (imageRef.current) {
-        gsap.fromTo(imageRef.current,
-          { opacity: 0, x: -40, scale: 0.95 },
-          { opacity: 1, x: 0, scale: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: containerRef.current, start: "top 75%" } }
-        );
-      }
-
-      // Animate Feature Cards
-      if (cardsRef.current) {
-        const cards = cardsRef.current.querySelectorAll('.feature-card');
-        gsap.fromTo(cards,
-          { opacity: 0, x: 40 },
-          { opacity: 1, x: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.1)", scrollTrigger: { trigger: containerRef.current, start: "top 75%" } }
-        );
-      }
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+  
+  const activeCompound = COMPOUNDS.find(c => c.id === activeId) || COMPOUNDS[0];
 
   return (
-    <section ref={containerRef} className="pt-8 pb-16 bg-[#fcfaf5] relative overflow-hidden">
-      
+    <section 
+      ref={containerRef} 
+      className="py-28 bg-3d-paper border-b border-sand-medium relative overflow-hidden"
+    >
       {/* Intricate Left/Right Background Borders */}
-      <div className="absolute top-0 left-2 bottom-0 w-8 opacity-20 pointer-events-none flex flex-col justify-between py-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'20\' height=\'40\' viewBox=\'0 0 20 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M10 0 C20 10, 20 30, 10 40 C0 30, 0 10, 10 0 Z\' fill=\'none\' stroke=\'%23b89047\' stroke-width=\'1\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat-y' }}></div>
-      <div className="absolute top-0 right-2 bottom-0 w-8 opacity-20 pointer-events-none flex flex-col justify-between py-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'20\' height=\'40\' viewBox=\'0 0 20 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M10 0 C20 10, 20 30, 10 40 C0 30, 0 10, 10 0 Z\' fill=\'none\' stroke=\'%23b89047\' stroke-width=\'1\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat-y' }}></div>
+      <div className="absolute top-0 left-2 bottom-0 w-8 opacity-15 pointer-events-none flex flex-col justify-between py-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'20\' height=\'40\' viewBox=\'0 0 20 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M10 0 C20 10, 20 30, 10 40 C0 30, 0 10, 10 0 Z\' fill=\'none\' stroke=\'%23b89047\' stroke-width=\'1\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat-y' }}></div>
+      <div className="absolute top-0 right-2 bottom-0 w-8 opacity-15 pointer-events-none flex flex-col justify-between py-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'20\' height=\'40\' viewBox=\'0 0 20 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M10 0 C20 10, 20 30, 10 40 C0 30, 0 10, 10 0 Z\' fill=\'none\' stroke=\'%23b89047\' stroke-width=\'1\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat-y' }}></div>
 
-      <div className="max-w-[1400px] mx-auto px-4 lg:px-12 relative z-10">
-        {/* Bottom half of the unified border box */}
-        <div className="border-b-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#cba358]/50 p-1.5 relative bg-[#fdfaf4] shadow-sm">
-          <div className="border-b-[0.5px] border-l-[0.5px] border-r-[0.5px] border-[#cba358]/30 p-8 md:p-12 relative">
-            
-            {/* Inner Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <span className="font-sans text-[13px] font-bold uppercase tracking-[0.35em] text-[#cc6a12] mb-3 block">
+            Scientific Provenance
+          </span>
+          <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold tracking-tight uppercase">
+            The Anatomy of Pure Saffron
+          </h2>
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-antique/50" />
+            <div className="w-1.5 h-1.5 rotate-45 bg-gold-antique/60" />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold-antique/50" />
+          </div>
+          <p className="font-sans text-[15px] text-text-muted max-w-2xl mx-auto mt-6 leading-relaxed">
+            Unlike standard commercial spices, Kashmiri Saffron is famous for its high concentrations of bioactive compounds. Explore the three main markers that make Kashmiri Mongra the finest saffron in the world.
+          </p>
+        </div>
+
+        {/* Interactive Split Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          
+          {/* Left Column: Interactive Image with Hotspots (5 cols) */}
+          <div className="lg:col-span-6 relative flex justify-center">
+            <div className="relative aspect-[4/5] w-full max-w-[420px] border border-gold-antique/30 p-3 bg-white shadow-2xl rounded-sm group overflow-hidden">
+              <div className="absolute inset-4 border border-gold-antique/10 pointer-events-none z-10" />
               
-              {/* Left: Image */}
-              <div ref={imageRef} className="relative aspect-[4/3] lg:aspect-[5/4] w-full border-[1.5px] border-[#cba358] p-2 bg-[#fffdf9] shadow-lg group">
-                <div className="relative w-full h-full overflow-hidden border-[1px] border-[#cba358]/50">
-                  <Image
-                    src="/assets/images/product_saffron.png"
-                    alt="Kashmiri Saffron Flowers and Strands"
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 border-[1px] border-white/20 mix-blend-overlay"></div>
-                </div>
-                {/* Decorative Overlay Corners */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-[2px] border-l-[2px] border-[#cba358] m-3 shadow-sm" />
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-[2px] border-r-[2px] border-[#cba358] m-3 shadow-sm" />
-              </div>
-
-              {/* Right: Grid */}
-              <div ref={cardsRef} className="flex flex-col">
-                <div className="flex items-center gap-4 mb-10">
-                  <h2 className="font-serif text-[17px] text-[#3d0c11] font-semibold tracking-[0.2em] uppercase">
-                    WHY KASHMIRI SAFFRON IS SPECIAL
-                  </h2>
-                  <div className="h-[1px] flex-1 bg-gradient-to-r from-[#cba358]/60 to-transparent"></div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
-                  {features.map((feature, index) => (
-                    <div key={index} className="feature-card border border-[#cba358]/30 p-5 flex flex-col gap-3 transition-all duration-300 hover:bg-[#fffdf9] hover:-translate-y-1 hover:shadow-md hover:border-[#cba358]/60 bg-[#fdfaf4] group relative">
-                      {/* Very thin inner border that appears on hover */}
-                      <div className="absolute inset-1 border-[0.5px] border-[#cba358]/0 transition-colors duration-300 group-hover:border-[#cba358]/30 pointer-events-none"></div>
+              <div className="relative w-full h-full overflow-hidden border border-sand-medium/40 rounded-sm">
+                <Image
+                  src="/assets/images/product_saffron.png"
+                  alt="Interactive Kashmiri Saffron Strand Anatomy"
+                  fill
+                  className="object-cover scale-102 group-hover:scale-105 transition-transform duration-700 brightness-95"
+                />
+                
+                {/* Hotspots Overlay */}
+                {COMPOUNDS.map((comp) => {
+                  const isActive = comp.id === activeId;
+                  return (
+                    <button
+                      key={comp.id}
+                      onClick={() => setActiveId(comp.id)}
+                      className="absolute z-20 group/hotspot transition-all duration-300"
+                      style={{ left: comp.spot.x, top: comp.spot.y }}
+                    >
+                      {/* Pulse rings */}
+                      <span className="absolute -inset-4 flex items-center justify-center pointer-events-none">
+                        <span className={`w-8 h-8 rounded-full border border-gold-antique/40 absolute animate-ping ${isActive ? "opacity-60" : "opacity-0 group-hover/hotspot:opacity-40"}`} />
+                        <span className={`w-5 h-5 rounded-full border-[1.5px] border-gold-antique/60 absolute ${isActive ? "scale-110" : "scale-100 group-hover/hotspot:scale-110"} transition-transform duration-300`} />
+                      </span>
                       
-                      <div className="flex items-start gap-4 relative z-10">
-                        <div className="flex-shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                          <feature.icon />
-                        </div>
-                        <div className="flex flex-col gap-1.5 pt-1">
-                          <h3 className="font-serif text-[12px] font-bold text-[#3d0c11] uppercase tracking-[0.15em] leading-tight">
-                            {feature.title}
-                          </h3>
-                          <p className="font-sans text-[11px] text-[#5a4b40] leading-relaxed">
-                            {feature.desc}
-                          </p>
-                        </div>
+                      {/* Center Point */}
+                      <div className={`w-3.5 h-3.5 rounded-full shadow-md flex items-center justify-center transition-all duration-300 ${isActive ? "bg-terracotta scale-125" : "bg-gold-antique group-hover/hotspot:bg-terracotta"}`}>
+                        <div className="w-1.5 h-1.5 rounded-full bg-white" />
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
+                      {/* Tooltip Label */}
+                      <span className={`absolute left-6 top-1/2 -translate-y-1/2 bg-maroon-dark text-white text-[9px] font-sans font-bold uppercase tracking-widest px-2.5 py-1 whitespace-nowrap shadow-md pointer-events-none rounded-sm border border-gold-antique/30 transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0 group-hover/hotspot:opacity-100"}`}>
+                        {comp.spot.label}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Tab Selector & Info Panel (6 cols) */}
+          <div className="lg:col-span-6 flex flex-col space-y-8 text-left">
+            
+            {/* Horizontal Tabs */}
+            <div className="flex gap-2 border-b border-sand-medium/40 pb-2">
+              {COMPOUNDS.map((comp) => {
+                const isActive = comp.id === activeId;
+                return (
+                  <button
+                    key={comp.id}
+                    onClick={() => setActiveId(comp.id)}
+                    className="relative px-4 py-2 font-serif text-[13px] font-bold tracking-wider uppercase transition-colors duration-300 cursor-pointer"
+                    style={{ color: isActive ? "var(--color-terracotta)" : "var(--color-text-muted)" }}
+                  >
+                    {comp.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeSpecialTab"
+                        className="absolute bottom-[-9px] left-0 right-0 h-[2px] bg-terracotta"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Content Panel with fade animation */}
+            <div className="min-h-[280px] flex flex-col justify-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeId}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-5"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-[#cc6a12] border-b border-[#cc6a12]/30 pb-1">
+                      {activeCompound.chemical}
+                    </span>
+                    <span className="inline-flex items-center gap-1 bg-[#cc6a12]/10 border border-[#cc6a12]/20 px-2 py-0.5 text-[10px] font-bold text-[#cc6a12] uppercase tracking-wider rounded-sm">
+                      <Sparkles className="w-3 h-3" /> {activeCompound.potency}
+                    </span>
+                  </div>
+
+                  <h3 className="font-serif text-[28px] md:text-[36px] font-bold text-text-dark leading-tight tracking-tight text-glow-gold">
+                    {activeCompound.name}
+                  </h3>
+
+                  <p className="font-serif text-[16px] italic text-text-muted leading-relaxed">
+                    &quot;{activeCompound.role}&quot;
+                  </p>
+
+                  <p className="font-sans text-[14px] md:text-[15px] text-text-muted leading-relaxed">
+                    {activeCompound.description}
+                  </p>
+
+                  <div className="flex items-center gap-4 pt-4 border-t border-sand-medium/40">
+                    <div className="flex items-center gap-2 text-gold-dark">
+                      <ShieldCheck className="w-5 h-5" />
+                      <span className="font-sans text-[11px] font-bold uppercase tracking-widest">
+                        Lab Tested Certificate Attached
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
             
           </div>
+          
         </div>
       </div>
     </section>

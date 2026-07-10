@@ -3,6 +3,8 @@ import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import FloatingSaffronPetals from "@/components/FloatingSaffronPetals";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -39,11 +41,14 @@ export default function RootLayout({
       className={`${cormorant.variable} ${outfit.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-parchment-base text-maroon-dark">
-        <Header />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScrollProvider>
+          <Header />
+          <main className="flex-1 relative">
+            <FloatingSaffronPetals />
+            {children}
+          </main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

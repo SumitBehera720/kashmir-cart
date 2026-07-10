@@ -1,136 +1,170 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
-const categories = [
+const CATEGORY_ITEMS = [
   {
-    title: "Kashmiri Saffron",
-    description: "World-famous Kashmiri saffron cultivated with traditional methods.",
-    image: "/assets/images/product_saffron_jar.png",
-    link: "/shop/premium-kashmiri-saffron",
+    title: "Kashmiri Mongra Saffron",
+    subtitle: "100% PURE & GI-TAGGED",
+    slugKey: "saffron",
+    imageUrl: "/assets/images/category_saffron.png",
+    colSpan: "md:col-span-6",
+    height: "h-[300px] md:h-[350px]"
   },
   {
-    title: "Kahwa Collection",
-    description: "Authentic Kashmiri wellness tea inspired by royal traditions.",
-    image: "/assets/images/product_kahwa_tin.png",
-    link: "/shop/kashmiri-kahwa-tea",
+    title: "Himalayan Shilajit",
+    subtitle: "HIGH-ALTITUDE MINERALS",
+    slugKey: "shilajit",
+    imageUrl: "/assets/images/category_shilajit.png",
+    colSpan: "md:col-span-4",
+    height: "h-[300px] md:h-[350px]"
   },
   {
-    title: "Kashmiri Honey",
-    description: "Pure Himalayan honey collected from Kashmir's valleys.",
-    image: "/assets/images/product_honey_jar.png",
-    link: "/shop/wild-kashmir-honey",
+    title: "Acacia White Honey",
+    subtitle: "ORGANIC & UNFILTERED",
+    slugKey: "honey",
+    imageUrl: "/assets/images/category_honey.png",
+    colSpan: "md:col-span-4",
+    height: "h-[300px] md:h-[350px]"
   },
   {
-    title: "Dry Fruits",
-    description: "Premium quality dry fruits handpicked from the valleys.",
-    image: "/assets/images/product_walnuts.png",
-    link: "/shop",
-  },
+    title: "Premium Dry Fruits & Nuts",
+    subtitle: "PREMIUM SUN-DRIED",
+    slugKey: "dry",
+    imageUrl: "/assets/images/category_dry_fruits.png",
+    colSpan: "md:col-span-6",
+    height: "h-[300px] md:h-[350px]"
+  }
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
+export default function CategoryShowcase({ categories = [] }: { categories?: any[] }) {
+  // Find Skincare separately for the promo banner
+  const skincareCat = categories.find((c: any) => c.name.toLowerCase().includes("raya") || c.name.toLowerCase().includes("skin"));
+  const skincareLink = skincareCat ? `/shop?category=${skincareCat.id}` : "/shop";
+  const skincareImg = skincareCat?.image_url || "/assets/images/category-placeholder.png";
 
-const cardVariants: Variants = {
-  hidden: { y: 30, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-export default function CategoryShowcase() {
   return (
-    <section className="py-24 bg-pattern-parchment border-b border-gold-antique/30">
-      <div className="max-w-7xl mx-auto px-6">
-        
+    <section className="py-24 bg-3d-paper border-b border-sand-medium relative overflow-hidden">
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+
         {/* Section Header */}
-        <div className="text-center mb-16 relative">
-          <h2 className="font-serif text-3xl md:text-4xl text-maroon-royal uppercase tracking-wider mb-4">
-            Explore Kashmir&apos;s Treasures
+        <div className="text-center mb-16">
+          <p className="font-sans text-[13px] font-bold uppercase tracking-[0.35em] text-[#cc6a12] mb-3">
+            Categories
+          </p>
+          <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold mb-4">
+            Explore the Valley&apos;s Finest
           </h2>
-          <div className="divider-ornate">
-            <div className="divider-ornate-icon" />
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-antique/50" />
+            <div className="w-1.5 h-1.5 rotate-45 bg-gold-antique/60" />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold-antique/50" />
           </div>
         </div>
 
-        {/* Categories Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {categories.map((category, index) => (
-            <motion.div key={index} variants={cardVariants} className="h-full">
-              <div className="bg-[#fcfaf5] border-[1.5px] border-[#cba358]/60 p-[6px] transition-all duration-300 hover:shadow-xl group flex flex-col h-full relative">
-                
-                {/* Inner Border with Geometric Triangles */}
-                <div className="absolute inset-[6px] border-[1.5px] border-[#cba358]/80 pointer-events-none z-10">
-                   {/* Top-left triangle */}
-                   <div className="absolute top-0 left-0 w-0 h-0 border-t-[16px] border-l-[16px] border-t-[#cba358]/80 border-l-[#cba358]/80 border-r-[16px] border-r-transparent border-b-[16px] border-b-transparent"></div>
-                   {/* Top-right triangle */}
-                   <div className="absolute top-0 right-0 w-0 h-0 border-t-[16px] border-r-[16px] border-t-[#cba358]/80 border-r-[#cba358]/80 border-l-[16px] border-l-transparent border-b-[16px] border-b-transparent"></div>
-                   {/* Bottom-left triangle */}
-                   <div className="absolute bottom-0 left-0 w-0 h-0 border-b-[16px] border-l-[16px] border-b-[#cba358]/80 border-l-[#cba358]/80 border-r-[16px] border-r-transparent border-t-[16px] border-t-transparent"></div>
-                   {/* Bottom-right triangle */}
-                   <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[16px] border-r-[16px] border-b-[#cba358]/80 border-r-[#cba358]/80 border-l-[16px] border-l-transparent border-t-[16px] border-t-transparent"></div>
-                </div>
+        {/* Categories Grid (Asymmetrical 4 items) */}
+        <div className="grid grid-cols-1 md:grid-cols-10 gap-6 mb-12">
+          {CATEGORY_ITEMS.map((item, index) => {
+            // Find if there is a matching category in database
+            const dbCat = categories.find(
+              (c: any) => c.name.toLowerCase().includes(item.slugKey) || c.slug.toLowerCase().includes(item.slugKey)
+            );
+            const categoryLink = dbCat ? `/shop?category=${dbCat.id}` : "/shop";
 
-                {/* Rectangular Image */}
-                <div className="relative w-full aspect-[4/3] p-1.5 mb-10 z-0">
-                  <div className="relative w-full h-full overflow-hidden border border-[#cba358]/50 bg-white">
-                    <Image
-                      src={category.image}
-                      alt={category.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`${item.colSpan} relative group overflow-hidden border border-sand-medium shadow-md hover:shadow-2xl hover:scale-[1.01] hover:rotate-[0.3deg] transition-all duration-500 rounded-sm`}
+              >
+                <Link href={categoryLink} className="block relative w-full h-full">
+                  {/* Signature Luxury Inner Gold Frame */}
+                  <div className="inner-gold-frame" />
+
+                  {/* Image Container */}
+                  <div className={`relative w-full ${item.height} overflow-hidden`}>
+                    <img
+                      src={item.imageUrl}
+                      alt={item.title}
+                      className="w-full h-full object-cover scale-100 group-hover:scale-106 transition-transform duration-700 ease-out"
                     />
+                    
+                    {/* Bottom-heavy gradient overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
                   </div>
-                  
-                  {/* Circular Badge - Overlapping */}
-                  <div className="absolute -bottom-[28px] left-1/2 -translate-x-1/2 w-[56px] h-[56px] rounded-full border-2 border-[#cba358] bg-[#1a0507] flex items-center justify-center shadow-md z-20">
-                    <div className="w-[46px] h-[46px] rounded-full border-[1px] border-[#cba358]/60 flex items-center justify-center p-2 relative overflow-hidden">
-                      <Image 
-                        src="/assets/images/logo.png" 
-                        alt="Brand Logo" 
-                        fill 
-                        className="object-contain p-2"
-                      />
-                    </div>
-                  </div>
-                </div>
 
-                <div className="text-center px-4 flex flex-col flex-grow z-20 pb-6 pt-2">
-                  <h3 className="font-serif text-[18px] text-[#3d0c11] font-medium uppercase tracking-[0.15em] mb-4">
-                    {category.title}
-                  </h3>
-                  <p className="font-sans text-[14px] text-[#4a3f35] font-medium leading-[1.6] mb-8 flex-grow max-w-[220px] mx-auto">
-                    {category.description}
-                  </p>
-                  
-                  <Link
-                    href={category.link}
-                    className="inline-flex items-center mx-auto group/link"
-                  >
-                    <span className="font-serif text-[13px] font-semibold uppercase tracking-[0.15em] text-[#8c672b] border-b border-[#8c672b] pb-[2px] transition-colors group-hover/link:text-[#3d0c11] group-hover/link:border-[#3d0c11]">
-                      EXPLORE NOW
+                  {/* Text Overlay (Bottom Left) */}
+                  <div className="absolute bottom-0 left-0 p-8 z-10 text-left">
+                    <span className="font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-[#d6af65] mb-2 block">
+                      {item.subtitle}
                     </span>
-                    <span className="ml-2 text-[#8c672b] transition-colors group-hover/link:text-[#3d0c11]">→</span>
-                  </Link>
-                </div>
+                    <h3 className="font-serif text-[24px] md:text-[32px] text-white leading-tight font-semibold text-glow-gold">
+                      {item.title}
+                    </h3>
+                  </div>
 
-              </div>
+                  {/* Ornate corner hover effect */}
+                  <div className="absolute top-4 left-4 w-3.5 h-3.5 border-t-[1.5px] border-l-[1.5px] border-white/20 group-hover:border-white group-hover:w-5 group-hover:h-5 transition-all duration-500" />
+                  <div className="absolute top-4 right-4 w-3.5 h-3.5 border-t-[1.5px] border-r-[1.5px] border-white/20 group-hover:border-white group-hover:w-5 group-hover:h-5 transition-all duration-500" />
+                  <div className="absolute bottom-4 left-4 w-3.5 h-3.5 border-b-[1.5px] border-l-[1.5px] border-white/20 group-hover:border-white group-hover:w-5 group-hover:h-5 transition-all duration-500" />
+                  <div className="absolute bottom-4 right-4 w-3.5 h-3.5 border-b-[1.5px] border-r-[1.5px] border-white/20 group-hover:border-white group-hover:w-5 group-hover:h-5 transition-all duration-500" />
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Separated Skincare Promo Banner - styled in new light-beige */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
+          className="relative bg-sand-light text-text-dark border border-sand-medium p-[6px] shadow-md overflow-hidden mt-20 group rounded-sm"
+        >
+          <div className="absolute inset-[6px] border border-gold-antique/20 pointer-events-none z-10" />
+          
+          <div className="relative z-20 flex flex-col md:flex-row items-center gap-10 p-8 md:p-12 bg-gradient-to-r from-[#faf8f5] via-[#faf6f0] to-[#eae2d5]">
+            {/* Floating Image Container */}
+            <motion.div 
+              animate={{ y: [0, -4, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              className="w-full md:w-1/3 aspect-[4/3] md:aspect-square overflow-hidden border border-sand-medium relative shadow-sm rounded-sm"
+            >
+              <div className="absolute inset-0 bg-black/5 z-10" />
+              <img 
+                src={skincareImg} 
+                alt="Raya Ayurveda Skincare Collection" 
+                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700 ease-in-out"
+              />
             </motion.div>
-          ))}
+
+            {/* Text & Action */}
+            <div className="flex-1 text-center md:text-left space-y-4">
+              <span className="font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-[#cc6a12] border-b border-[#cc6a12]/30 pb-1">
+                Featured Collection
+              </span>
+              <h3 className="font-serif text-2.5xl md:text-4.5xl text-text-dark tracking-wide uppercase">
+                Raya Ayurveda Skin Care
+              </h3>
+              <p className="font-sans text-sm text-text-muted leading-relaxed max-w-xl">
+                Elevate your daily ritual with botanical skincare formulated with pure Kashmiri Saffron, Himalayan herbs, and natural essential oils. 100% clean, therapeutic luxury.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href={skincareLink}
+                  className="inline-flex items-center gap-3 px-8 py-3.5 bg-[#cc6a12] text-white font-sans text-[11px] font-bold uppercase tracking-[0.25em] hover:bg-[#b35607] transition-all duration-300 shadow-md rounded-sm shimmer-effect cursor-pointer"
+                >
+                  Explore Raya Skincare →
+                </Link>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
       </div>
