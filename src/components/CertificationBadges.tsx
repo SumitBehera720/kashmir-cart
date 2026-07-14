@@ -8,14 +8,14 @@ const certificationsRow1 = [
     logo: "/assets/images/goi-emblem.svg",
     label: "Registration No. 4008713",
     description: "Officially registered business entity operating under Government of India records.",
-    color: "from-[#FF9933] to-[#138808]"
+    color: "from-gold-antique via-gold-light to-gold-dark"
   },
   {
     name: "Government of J&K Registration",
     logo: "/assets/images/JK_Govt_3-removebg-preview.png",
     label: "Registration No. 97006290",
     description: "Recognized and registered within Jammu & Kashmir regulatory framework.",
-    color: "from-[#0a361a] to-[#2c6b3f]"
+    color: "from-gold-antique via-gold-light to-gold-dark"
   }
 ];
 
@@ -25,14 +25,14 @@ const certificationsRow2 = [
     logo: "/assets/images/fssai-removebg-preview.png",
     label: "License No. 21025472000232",
     description: "Food safety compliance for saffron, honey, dry fruits, spices and wellness products.",
-    color: "from-[#1a6b3c] to-[#2e9e5a]"
+    color: "from-gold-antique via-gold-light to-gold-dark"
   },
   {
     name: "Udyam Registered MSME",
     logo: "/assets/images/msme-logo.svg",
     label: "UDYAM-JK-15-0033453",
     description: "Registered Micro, Small & Medium Enterprise recognized by Government of India.",
-    color: "from-[#0d4f8b] to-[#1b7fd8]"
+    color: "from-gold-antique via-gold-light to-gold-dark"
   }
 ];
 
@@ -41,7 +41,7 @@ const certificationRow3 = {
   logo: "/assets/images/iso-logo.svg",
   label: "IN-QSCERT-2025-11-075",
   description: "International quality management certification reflecting commitment to operational excellence.",
-  color: "from-[#3d0c11] to-[#6b1f28]"
+  color: "from-gold-antique via-gold-light to-gold-dark"
 };
 
 export default function CertificationBadges() {
@@ -81,8 +81,8 @@ export default function CertificationBadges() {
                 {/* Luxury Inner Frame */}
                 <div className="absolute inset-2.5 border border-gold-antique/25 group-hover:inset-3 group-hover:border-gold-light/50 transition-all duration-500 pointer-events-none rounded-sm" />
                 
-                <div className="h-24 flex items-center justify-center mb-6 relative z-10">
-                  <img src={cert.logo} alt={cert.name} className="h-20 max-w-[160px] object-contain group-hover:scale-103 transition-transform duration-300" />
+                <div className="h-24 w-full max-w-[180px] bg-white/95 border border-gold-antique/30 rounded-sm flex items-center justify-center mb-6 relative z-10 px-4 py-2 shadow-md">
+                  <img src={cert.logo} alt={cert.name} className="h-16 max-w-full object-contain group-hover:scale-103 transition-transform duration-300" />
                 </div>
                 <div className="space-y-4 relative z-10">
                   <h3 className="font-serif text-lg text-white font-semibold tracking-wide">
@@ -107,8 +107,8 @@ export default function CertificationBadges() {
                 {/* Luxury Inner Frame */}
                 <div className="absolute inset-2.5 border border-gold-antique/25 group-hover:inset-3 group-hover:border-gold-light/50 transition-all duration-500 pointer-events-none rounded-sm" />
                 
-                <div className="h-24 flex items-center justify-center mb-6 relative z-10">
-                  <img src={cert.logo} alt={cert.name} className="h-20 max-w-[160px] object-contain group-hover:scale-103 transition-transform duration-300" />
+                <div className="h-24 w-full max-w-[180px] bg-white/95 border border-gold-antique/30 rounded-sm flex items-center justify-center mb-6 relative z-10 px-4 py-2 shadow-md">
+                  <img src={cert.logo} alt={cert.name} className="h-16 max-w-full object-contain group-hover:scale-103 transition-transform duration-300" />
                 </div>
                 <div className="space-y-4 relative z-10">
                   <h3 className="font-serif text-lg text-white font-semibold tracking-wide">
@@ -132,8 +132,8 @@ export default function CertificationBadges() {
               {/* Luxury Inner Frame */}
               <div className="absolute inset-2.5 border border-gold-antique/25 group-hover:inset-3 group-hover:border-gold-light/50 transition-all duration-500 pointer-events-none rounded-sm" />
               
-              <div className="h-24 flex items-center justify-center mb-6 relative z-10">
-                <img src={certificationRow3.logo} alt={certificationRow3.name} className="h-20 max-w-[160px] object-contain group-hover:scale-103 transition-transform duration-300" />
+              <div className="h-24 w-full max-w-[180px] bg-white/95 border border-gold-antique/30 rounded-sm flex items-center justify-center mb-6 relative z-10 px-4 py-2 shadow-md">
+                <img src={certificationRow3.logo} alt={certificationRow3.name} className="h-16 max-w-full object-contain group-hover:scale-103 transition-transform duration-300" />
               </div>
               <div className="space-y-4 relative z-10">
                 <h3 className="font-serif text-lg text-white font-semibold tracking-wide">

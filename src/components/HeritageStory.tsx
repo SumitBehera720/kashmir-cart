@@ -130,10 +130,10 @@ export default function HeritageStory() {
             >
               <div className="relative w-full h-full overflow-hidden border border-gold-antique/20 rounded-sm">
                 <Image
-                  src="/assets/images/artisan_woodcarverr.png"
-                  alt="Kashmiri artisan in mountains"
+                  src="/assets/images/story_farmer.jpeg"
+                  alt="Kashmiri farmer in saffron fields"
                   fill
-                  className="object-cover grayscale brightness-95 contrast-105 group-hover:scale-103 transition-transform duration-700"
+                  className="object-cover group-hover:scale-103 transition-transform duration-700"
                 />
               </div>
               {/* Luxury Frame Corner Ornaments */}

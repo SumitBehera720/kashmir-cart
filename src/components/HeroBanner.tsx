@@ -58,7 +58,7 @@ export default function HeroBanner() {
         className="absolute inset-[-20px] z-0 pointer-events-none"
       >
         <Image
-          src="/assets/images/ktheme.jpeg"
+          src="/assets/images/ktheme.png"
           alt="Misty Kashmir Valley and Mountains"
           fill
           priority

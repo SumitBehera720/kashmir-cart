@@ -28,8 +28,8 @@ export default function OurStoryPage() {
         <div className="relative aspect-[16/9] w-full mb-16 bg-parchment-light border-[1.5px] border-gold-antique p-2">
           <div className="relative w-full h-full border border-gold-antique/30">
             <Image
-              src="/assets/images/artisan_woodcarver.png"
-              alt="Kashmiri Artisan"
+              src="/assets/images/story_picking.png"
+              alt="Harvesting saffron flowers in Pampore, Kashmir"
               fill
               className="object-cover"
             />
@@ -53,6 +53,17 @@ export default function OurStoryPage() {
           <p>
             Every product in our collection is a testament to the purity of nature and the skill of our farmers. We do not mass-produce. Our saffron is sourced exclusively from the GI-tagged fields of Pampore, hand-harvested before sunrise to retain its delicate aroma. Our honey is gathered from the wild forests of Pahalgam, completely unpasteurized and raw.
           </p>
+
+          <div className="relative aspect-[16/9] w-full my-8 bg-parchment-light border-[1.5px] border-gold-antique p-2">
+            <div className="relative w-full h-full border border-gold-antique/30">
+              <Image
+                src="/assets/images/story_sorting.png"
+                alt="Sorting and quality selection of Saffron stigmata"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
 
           <h2 className="text-2xl mt-12 mb-6 border-b border-gold-antique/30 pb-2">Sustainable & Ethical</h2>
           <p>

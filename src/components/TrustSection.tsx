@@ -83,7 +83,7 @@ export default function TrustSection() {
       <div className="max-w-[1400px] mx-auto px-4 lg:px-12 relative z-10">
         {/* Top half of the unified border box */}
         <div className="border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-sand-medium p-1.5 relative shadow-sm">
-          <div className="border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-sand-medium/60 p-8 md:p-12 relative bg-white/95 backdrop-blur-sm">
+          <div className="border-t-[0.5px] border-l-[0.5px] border-r-[0.5px] border-sand-medium/60 p-5 sm:p-8 md:p-12 relative bg-white/95 backdrop-blur-sm">
             
             <div className="flex flex-col xl:flex-row gap-12 xl:gap-0 justify-between items-stretch">
               
@@ -95,28 +95,31 @@ export default function TrustSection() {
                   </h2>
                 </div>
                 
-                <div ref={stepsRef} className="flex flex-row items-start justify-between w-full relative">
+                <div ref={stepsRef} className="flex flex-col md:flex-row items-center md:items-start justify-between w-full relative gap-6 md:gap-0">
                   {steps.map((step, index) => (
-                    <div key={index} className="flex flex-row items-center w-full">
-                      <div className="journey-step flex flex-col items-center gap-5 group text-center z-10 w-28 cursor-pointer">
+                    <div key={index} className="flex flex-col md:flex-row items-center w-full md:w-auto flex-1">
+                      <div className="journey-step flex flex-col items-center gap-3 md:gap-5 group text-center z-10 w-full md:w-28 cursor-pointer">
                         {/* Premium Double Ring Circle */}
-                        <div className="w-[84px] h-[84px] rounded-full border-[1.5px] border-sand-medium bg-sand-light flex items-center justify-center shadow-sm relative overflow-hidden p-1 transition-transform duration-500 group-hover:scale-110 group-hover:border-gold-antique">
+                        <div className="w-[72px] h-[72px] md:w-[84px] md:h-[84px] rounded-full border-[1.5px] border-sand-medium bg-sand-light flex items-center justify-center shadow-sm relative overflow-hidden p-1 transition-transform duration-500 group-hover:scale-110 group-hover:border-gold-antique">
                           <div className="w-full h-full rounded-full border-[1px] border-sand-medium/40 bg-white flex items-center justify-center overflow-hidden transition-colors duration-500 group-hover:bg-sand-light">
                             <step.icon />
                           </div>
                         </div>
-                        <span className="font-serif text-[13.5px] font-bold text-text-dark leading-snug px-1 transition-colors group-hover:text-terracotta tracking-wide">
+                        <span className="font-serif text-[12.5px] md:text-[13.5px] font-bold text-text-dark leading-snug px-1 transition-colors group-hover:text-terracotta tracking-wide">
                           {step.label}
                         </span>
                       </div>
                       
                       {/* Detailed SVG Arrow between steps */}
                       {index < steps.length - 1 && (
-                        <div className="journey-arrow flex-1 flex justify-center -translate-y-6 opacity-60">
-                          <svg viewBox="0 0 100 20" className="w-full h-5 stroke-gold-antique" preserveAspectRatio="none">
-                            <path d="M0,10 L95,10 M90,5 L95,10 L90,15" fill="none" strokeWidth="1" />
-                          </svg>
-                        </div>
+                        <>
+                          <div className="journey-arrow hidden md:flex flex-1 justify-center -translate-y-6 opacity-60">
+                            <svg viewBox="0 0 100 20" className="w-full h-5 stroke-gold-antique" preserveAspectRatio="none">
+                              <path d="M0,10 L95,10 M90,5 L95,10 L90,15" fill="none" strokeWidth="1" />
+                            </svg>
+                          </div>
+                          <div className="md:hidden w-[1.5px] h-8 bg-gradient-to-b from-gold-antique/60 to-transparent my-2" />
+                        </>
                       )}
                     </div>
                   ))}
@@ -131,17 +134,17 @@ export default function TrustSection() {
                   </h2>
                 </div>
                 
-                <div ref={promisesRef} className="flex flex-row justify-between items-start w-full gap-4">
+                <div ref={promisesRef} className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
                   {promises.map((promise, index) => (
-                    <div key={index} className="promise-card flex flex-col items-center text-center gap-5 flex-1 p-4 transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer border border-transparent hover:border-gold-antique/20 hover:bg-sand-light/20 rounded-sm">
-                      <div className="h-[72px] w-[72px] flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 overflow-hidden rounded-full shadow-sm bg-white border border-sand-medium p-1 group-hover:border-gold-antique">
+                    <div key={index} className="promise-card flex flex-col items-center text-center gap-4 p-4 transition-all duration-500 hover:-translate-y-1.5 group cursor-pointer border border-transparent hover:border-gold-antique/20 hover:bg-sand-light/20 rounded-sm">
+                      <div className="h-[64px] w-[64px] md:h-[72px] md:w-[72px] flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 overflow-hidden rounded-full shadow-sm bg-white border border-sand-medium p-1 group-hover:border-gold-antique">
                         <promise.icon />
                       </div>
-                      <div className="flex flex-col items-center gap-2">
-                        <h3 className="font-serif text-[14.5px] font-extrabold text-text-dark uppercase tracking-[0.12em] leading-tight border-b border-transparent transition-colors group-hover:border-gold-antique/50 pb-1">
+                      <div className="flex flex-col items-center gap-1.5">
+                        <h3 className="font-serif text-[13.5px] md:text-[14.5px] font-extrabold text-text-dark uppercase tracking-[0.12em] leading-tight border-b border-transparent transition-colors group-hover:border-gold-antique/50 pb-0.5">
                           {promise.title}
                         </h3>
-                        <p className="font-sans text-[12px] text-text-muted leading-relaxed px-1">
+                        <p className="font-sans text-[11px] md:text-[12px] text-text-muted leading-relaxed px-1">
                           {promise.desc}
                         </p>
                       </div>
