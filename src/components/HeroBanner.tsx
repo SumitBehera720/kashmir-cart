@@ -81,7 +81,7 @@ export default function HeroBanner() {
           >
             <span className="w-2 h-2 rotate-45 bg-[#cc6a12]" />
             <span className="font-sans text-[13px] font-bold uppercase tracking-[0.4em] text-[#cc6a12] block">
-              100% PURE AND NATURAL SOURCING
+              ARTISANAL AUTHORITY
             </span>
           </motion.div>
           
@@ -93,7 +93,7 @@ export default function HeroBanner() {
             className="font-serif text-[48px] md:text-[76px] lg:text-[90px] font-semibold text-text-dark leading-[1.05] mb-8 tracking-tight text-glow-gold"
           >
             Authentic Essence <br />
-            of Kashmir, <span className="text-gold-antique italic font-medium">Delivered.</span>
+            of Kashmir, <span className="text-gold-antique italic font-medium">Delivered to Your Doorstep.</span>
           </motion.h1>
 
           {/* Description */}
@@ -103,7 +103,7 @@ export default function HeroBanner() {
             transition={{ duration: 1, delay: 0.5 }}
             className="font-sans text-[16px] md:text-[18px] text-text-muted leading-relaxed mb-12 max-w-xl font-medium"
           >
-            Directly sourced from the pristine high-altitude valleys, bringing you the finest lab-certified Saffron, purified Shilajit, and Wild Honey.
+            Directly sourced from the farmers of the valley. Pure. Potent. Provenance Guaranteed.
           </motion.p>
 
           {/* Buttons */}
@@ -117,14 +117,14 @@ export default function HeroBanner() {
               href="/shop"
               className="inline-flex items-center justify-center bg-terracotta hover:bg-terracotta-hover text-white px-10 py-4.5 transition-all duration-300 font-sans text-[12px] font-bold uppercase tracking-widest rounded-sm shadow-lg hover:shadow-xl shimmer-effect cursor-pointer"
             >
-              Shop Collection
+              Shop the Collection
             </Link>
 
             <Link
               href="/our-story"
               className="inline-flex items-center gap-2 text-text-dark hover:text-terracotta transition-colors font-sans text-[11px] font-bold uppercase tracking-widest group"
             >
-              Our Story
+              Our Process
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>

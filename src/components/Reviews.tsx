@@ -35,19 +35,22 @@ export default function Reviews() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.15 }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-16 max-w-4xl mx-auto"
         >
-          <p className="font-sans text-[13px] font-bold uppercase tracking-[0.35em] text-[#cc6a12] mb-3">
-            TESTIMONIALS
+          <p className="font-sans text-[13px] font-bold uppercase tracking-[0.3em] text-[#cc6a12] mb-3">
+            REAL EXPERIENCES &bull; VERIFIED CUSTOMERS &bull; TRUSTED ACROSS INDIA
           </p>
-          <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold mb-4">
-            Voices of Provenance
+          <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold mb-4 leading-tight">
+            What Our Customers Say About KashmirCart
           </h2>
-          <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="flex items-center justify-center gap-4 my-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-antique/50" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold-antique/60" />
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold-antique/50" />
           </div>
+          <p className="font-sans text-[14px] md:text-[15px] text-text-muted leading-relaxed max-w-3xl mx-auto font-medium">
+            Thousands of customers across India trust KashmirCart for authentic Kashmiri saffron, Himalayan Shilajit, premium dry fruits, natural wellness products, herbal skincare, and traditional Himalayan treasures. Their experiences reflect our commitment to purity, authenticity, quality, and customer satisfaction. From first-time buyers to loyal repeat customers, people choose KashmirCart for genuine products sourced from Kashmir, transparent quality standards, secure shopping, and reliable nationwide delivery. Explore real reviews and discover why customers continue to recommend KashmirCart to family and friends.
+          </p>
         </motion.div>
 
         {/* 3-Column Reviews Grid */}

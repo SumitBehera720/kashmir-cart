@@ -13,8 +13,8 @@ const certificationsRow1 = [
   {
     name: "Government of J&K Registration",
     logo: "/assets/images/JK_Govt_3-removebg-preview.png",
-    label: "Registration No. 97006290",
-    description: "Recognized and registered within Jammu & Kashmir regulatory framework.",
+    label: "Registration No. 97088298",
+    description: "Recognised and registered within Jammu & Kashmir regulatory framework.",
     color: "from-gold-antique via-gold-light to-gold-dark"
   }
 ];
@@ -53,12 +53,12 @@ export default function CertificationBadges() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="font-sans text-[13px] font-bold uppercase tracking-[0.4em] text-gold-light mb-3">
-            Trust & Authenticity
+        <div className="text-center mb-16 max-w-4xl mx-auto">
+          <p className="font-sans text-[13px] font-bold uppercase tracking-[0.3em] text-gold-light mb-3">
+            VERIFIED &bull; REGISTERED &bull; CERTIFIED
           </p>
-          <h2 className="font-serif text-4xl md:text-5.5xl text-white uppercase tracking-wider font-semibold mb-4">
-            Trusted Through Verified <br />Compliance & Certifications
+          <h2 className="font-serif text-4xl md:text-5.5xl text-white uppercase tracking-wider font-semibold mb-4 leading-tight">
+            Trusted By Customers Across India Through Verified Compliance &amp; Certifications
           </h2>
           <div className="flex items-center justify-center gap-4 mt-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-antique/50" />
@@ -66,7 +66,7 @@ export default function CertificationBadges() {
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold-antique/50" />
           </div>
           <p className="font-sans text-[15px] text-white/80 max-w-2xl mx-auto mt-6 leading-relaxed">
-            KashmirCart operates under recognized registrations, certifications, and regulatory compliance frameworks. Every product is sourced with a commitment to authenticity, quality assurance, transparency, and customer trust.
+            KashmirCart operates under recognised registrations, certifications, and regulatory compliance frameworks. Every product is sourced with a commitment to authenticity, quality assurance, transparency, and customer trust.
           </p>
         </div>
 

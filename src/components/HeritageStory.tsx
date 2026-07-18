@@ -36,7 +36,7 @@ export default function HeritageStory() {
               transition={{ duration: 0.6 }}
             >
               <span className="font-sans text-[13px] font-bold uppercase tracking-[0.35em] text-gold-light">
-                OUR HERITAGE
+                OUR ROOTS
               </span>
             </motion.div>
             
@@ -55,7 +55,7 @@ export default function HeritageStory() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="font-sans text-[15px] text-white/80 leading-relaxed max-w-xl"
             >
-              From the fertile fields of Pampore to the rugged highlands of the Himalayas, we bridge the gap between Kashmir&apos;s finest artisans and you. Our mission is to preserve these centuries-old traditions while ensuring fair livelihoods.
+              KashmirCart was born from a singular mission: to preserve and share the ancient agricultural heritage of the Kashmir Valley. For generations, our families have cultivated the world&apos;s most sought-after saffron and minerals under the watchful gaze of the Himalayas.
             </motion.p>
             
             <motion.p
@@ -64,7 +64,7 @@ export default function HeritageStory() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="font-sans text-[15px] text-white/80 leading-relaxed max-w-xl"
             >
-              For generations, our partner families have harvested these premium ingredients, ensuring each batch is selected for its peak potency and purity. Every product carries the story, culture, and craftsmanship of Kashmir.
+              By eliminating middlemen, we ensure that every gram of product you receive is untainted, and every purchase directly supports the traditional farming communities of the valley. We don&apos;t just sell products; we deliver a piece of Kashmiri soul.
             </motion.p>
  
             {/* Stats Block (3 columns) */}
@@ -75,47 +75,37 @@ export default function HeritageStory() {
               className="grid grid-cols-3 gap-6 pt-8 max-w-lg border-t border-gold-antique/30"
             >
               <div>
-                <span className="font-serif text-4xl md:text-5.5xl font-bold text-gold-light block text-glow-gold">250+</span>
-                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1">
-                  Farmers Partnered
+                <span className="font-serif text-4xl md:text-5.5xl font-bold text-gold-light block text-glow-gold">200+</span>
+                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1 leading-tight">
+                  FARMER PARTNERS
                 </span>
               </div>
               <div>
                 <span className="font-serif text-4xl md:text-5.5xl font-bold text-gold-light block text-glow-gold">100%</span>
-                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1">
-                  Pure & Certified
+                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1 leading-tight">
+                  LAB CERTIFIED
                 </span>
               </div>
               <div>
                 <span className="font-serif text-4xl md:text-5.5xl font-bold text-gold-light block text-glow-gold">12</span>
-                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1">
-                  Global Awards
+                <span className="font-sans text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-wider block mt-1 leading-tight">
+                  EXPORT COUNTRIES
                 </span>
               </div>
             </motion.div>
  
-            {/* Lab Certified Badge */}
+            {/* Purity Quote block */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="pt-6"
             >
-              <motion.div 
-                animate={{ y: [0, -4, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="inline-flex items-center gap-4 bg-maroon-deep/90 border border-gold-antique/40 p-6 shadow-xl rounded-sm max-w-md hover:border-gold-light/40 transition-colors"
-              >
-                <CheckCircle className="w-6 h-6 text-gold-light flex-shrink-0" />
-                <div className="text-left">
-                  <span className="font-serif text-[14px] font-bold text-gold-light uppercase tracking-wider block">
-                    Lab Certified Saffron
-                  </span>
-                  <span className="font-sans text-[11px] text-white/80 leading-tight block mt-1">
-                    Every batch is tested in government-approved laboratories for purity, safranal, and crocin levels.
-                  </span>
-                </div>
-              </motion.div>
+              <div className="border-l-2 border-gold-light pl-6 py-2 max-w-md">
+                <p className="font-serif text-lg md:text-xl text-gold-light italic tracking-wide leading-relaxed">
+                  &ldquo;Preserving the purity of the valley for future generations.&rdquo;
+                </p>
+              </div>
             </motion.div>
           </div>
  

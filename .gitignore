@@ -45,3 +45,5 @@ hostingercredential.md
 plan.md
 .agents/
 .gemini/
+dist_deploy/
+dist_deploy.zip

@@ -5,32 +5,32 @@ import { motion } from "framer-motion";
 
 const CATEGORY_ITEMS = [
   {
-    title: "Kashmiri Mongra Saffron",
-    subtitle: "100% PURE & GI-TAGGED",
+    title: "A++ Kashmiri Saffron",
+    subtitle: "THE GOLD OF PAMPORE",
     slugKey: "saffron",
     imageUrl: "/assets/images/category_saffron.png",
     colSpan: "md:col-span-6",
     height: "h-[300px] md:h-[350px]"
   },
   {
-    title: "Himalayan Shilajit",
-    subtitle: "HIGH-ALTITUDE MINERALS",
+    title: "Mountain Shilajit",
+    subtitle: "HIMALAYAN VITALITY",
     slugKey: "shilajit",
     imageUrl: "/assets/images/category_shilajit.png",
     colSpan: "md:col-span-4",
     height: "h-[300px] md:h-[350px]"
   },
   {
-    title: "Acacia White Honey",
-    subtitle: "ORGANIC & UNFILTERED",
+    title: "Organic Honey",
+    subtitle: "WILDFLOWER INFUSION",
     slugKey: "honey",
     imageUrl: "/assets/images/category_honey.png",
     colSpan: "md:col-span-4",
     height: "h-[300px] md:h-[350px]"
   },
   {
-    title: "Premium Dry Fruits & Nuts",
-    subtitle: "PREMIUM SUN-DRIED",
+    title: "Premium Dry Fruits",
+    subtitle: "HAND-SORTED GRADE A",
     slugKey: "dry",
     imageUrl: "/assets/images/category_dry_fruits.png",
     colSpan: "md:col-span-6",
@@ -50,17 +50,28 @@ export default function CategoryShowcase({ categories = [] }: { categories?: any
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 max-w-4xl mx-auto">
           <p className="font-sans text-[13px] font-bold uppercase tracking-[0.35em] text-[#cc6a12] mb-3">
-            Categories
+            CURATED SELECTION
           </p>
           <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold mb-4">
             Explore the Valley&apos;s Finest
           </h2>
-          <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="flex items-center justify-center gap-4 my-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-antique/50" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold-antique/60" />
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold-antique/50" />
+          </div>
+          <div className="space-y-4 font-sans text-[14px] md:text-[15px] text-text-muted leading-relaxed text-center font-medium">
+            <p>
+              KashmirCart was founded with a simple mission to bring genuine Kashmiri products directly from the valleys of Kashmir to homes across India. What began with our family&apos;s connection to the saffron fields of Pampore has grown into one of India&apos;s trusted destinations for authentic Himalayan wellness, nutrition, and traditional products.
+            </p>
+            <p>
+              Every product is carefully sourced from local farmers, growers, beekeepers, and artisans across Kashmir. From GI-tagged Kashmiri Saffron and Himalayan Markhor Shilajit to forest honey, premium dry fruits, Kehwa, lavender oil, natural skincare, and wellness essentials, each item reflects the heritage, purity, and traditions of the Himalayan region.
+            </p>
+            <p>
+              Today, KashmirCart proudly serves customers across India with lab-tested products, transparent sourcing, secure delivery, and preserving the authenticity that Kashmir is known for worldwide.
+            </p>
           </div>
         </div>
 

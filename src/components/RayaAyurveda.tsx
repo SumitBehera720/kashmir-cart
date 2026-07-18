@@ -94,31 +94,34 @@ export default function RayaAyurveda() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-sans text-[13px] font-bold uppercase tracking-[0.4em] text-[#cc6a12] mb-3">
-              Introducing
+            <p className="font-sans text-[13px] font-bold uppercase tracking-[0.3em] text-[#cc6a12] mb-3">
+              PURE AYURVEDA &bull; PREMIUM SKINCARE &bull; MADE WITH HIMALAYAN INGREDIENTS
             </p>
-            <div className="inline-flex items-center gap-3 mb-4">
+            <div className="inline-flex items-center gap-3 mb-6">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-gold-antique" />
-              <h2 className="font-serif text-4xl md:text-6xl text-text-dark tracking-tight font-semibold text-glow-gold">
-                RAYA <span className="text-gold-antique italic font-medium">Ayurveda</span>
+              <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark tracking-tight font-semibold text-glow-gold">
+                RAYA <span className="text-gold-antique italic font-medium">Ayurveda Skincare Collection</span>
               </h2>
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-gold-antique" />
             </div>
-            <p className="font-serif text-xl text-text-muted italic mb-4">
-              Skincare Collection
-            </p>
-            <p className="font-sans text-[15px] text-text-muted max-w-2xl mx-auto leading-relaxed">
-              Ancient Ayurvedic wisdom meets modern skincare science. Each RAYA formula is crafted with 
-              Himalayan botanicals, lab-tested ingredients, and zero harsh chemicals — designed for the 
-              discerning skin that deserves only the finest nature has to offer.
-            </p>
+            <div className="space-y-4 font-sans text-[14px] md:text-[15px] text-text-muted leading-relaxed text-center font-medium max-w-3xl mx-auto">
+              <p>
+                Discover the luxurious world of RAYA Ayurveda, a premium skincare collection inspired by ancient Ayurvedic wisdom and enriched with carefully selected Himalayan botanicals. Formulated using traditional beauty rituals and modern skincare standards, RAYA products are designed to nourish, protect, and rejuvenate your skin naturally.
+              </p>
+              <p>
+                From authentic Kashmiri Saffron skincare and herbal face creams to natural rose water, nourishing oils, face masks, cleansers, and beauty essentials, every product is crafted to support healthy, radiant, and youthful-looking skin. Our formulations combine nature&apos;s finest ingredients with centuries of Ayurvedic knowledge to deliver visible results without compromising purity.
+              </p>
+              <p>
+                Whether you are looking for anti-aging skincare, skin brightening solutions, hydration therapy, pigmentation care, natural glow enhancement, or daily Ayurvedic beauty essentials, the RAYA Ayurveda Skincare Collection offers trusted solutions for every skin type.
+              </p>
+            </div>
           </motion.div>
         </div>
 

@@ -58,18 +58,21 @@ export default function ProductGrid({ products = [] }: ProductGridProps) {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 max-w-4xl mx-auto">
           <p className="font-sans text-[13px] font-bold uppercase tracking-[0.35em] text-[#cc6a12] mb-3">
-            OUR CURATED COLLECTION
+            TRUSTED SINCE 2016 • AUTHENTIC HIMALAYAN COLLECTION
           </p>
-          <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold mb-4">
-            Artisanal Best Sellers
+          <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold mb-4 leading-tight">
+            Discover Kashmir&apos;s Most Loved Products
           </h2>
-          <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="flex items-center justify-center gap-4 my-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-antique/50" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold-antique/60" />
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold-antique/50" />
           </div>
+          <p className="font-sans text-[14px] md:text-[15px] text-text-muted leading-relaxed max-w-3xl mx-auto font-medium">
+            For generations, the valleys of Kashmir have produced some of the world&apos;s most treasured natural products. At KashmirCart, we bring these authentic Himalayan treasures directly from trusted farmers, growers, and local artisans to customers across India. Explore our bestselling collection featuring Premium Kashmiri Saffron from Pampore, Himalayan Markhor Shilajit Resin, wild mountain honey, nutrient-rich dry fruits, wellness essentials, traditional Kehwa, natural skincare, and carefully selected Himalayan products known for their purity, authenticity, and exceptional quality.
+          </p>
         </div>
 
         {/* 4-Column Grid with Scroll Stagger Reveal */}

@@ -49,17 +49,34 @@ export default function AllProductsGrid({ products = [] }: AllProductsGridProps)
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="mb-14 relative flex flex-col items-center justify-center text-center">
+        <div className="mb-14 relative flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
           <p className="font-sans text-[13px] font-bold uppercase tracking-[0.35em] text-[#cc6a12] mb-3">
-            EXPLORE OUR CATALOG
+            AUTHENTIC HIMALAYAN HERITAGE &bull; TRUSTED SINCE 2016
           </p>
-          <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold tracking-tight">
-            Discover Pure Valleys
+          <h2 className="font-serif text-4xl md:text-5.5xl text-text-dark font-semibold tracking-tight leading-tight">
+            Explore Our Complete Collection of Authentic Kashmiri Products
           </h2>
-          <div className="flex items-center justify-center gap-4 mt-6">
+          <div className="flex items-center justify-center gap-4 my-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-antique/50" />
             <div className="w-1.5 h-1.5 rotate-45 bg-gold-antique/60" />
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold-antique/50" />
+          </div>
+          <div className="space-y-4 font-sans text-[14px] md:text-[15px] text-text-muted leading-relaxed text-center font-medium max-w-3xl mx-auto">
+            <p>
+              Welcome to KashmirCart, India&apos;s trusted destination for authentic Kashmiri products sourced directly from the valleys, mountains, farms, and traditional communities of Kashmir. Our carefully curated collection brings together premium Himalayan treasures known for their purity, quality, traditional value, and natural goodness.
+            </p>
+            <p>
+              Discover world-famous Kashmiri Saffron from Pampore, authentic Himalayan Markhor Shilajit Resin, raw mountain honey, premium walnuts, almonds, cashews, dried fruits, natural spices, Kehwa tea, medicinal herbs, wild mushrooms, lavender products, herbal skincare, essential oils, natural wellness products, and traditional Himalayan foods trusted for generations.
+            </p>
+            <p>
+              Every product in our collection is selected through strict quality standards and sourced from trusted farmers, growers, producers, and local communities. We focus on authenticity, freshness, traceability, and customer satisfaction while preserving the rich cultural and agricultural heritage of Kashmir.
+            </p>
+            <p>
+              Whether you are searching for premium dry fruits online, pure Kashmiri saffron, natural Shilajit resin, healthy snacks, Ayurvedic wellness products, herbal teas, skincare essentials, gourmet ingredients, or authentic Himalayan products, KashmirCart offers a complete collection for health-conscious families and wellness enthusiasts across India.
+            </p>
+            <p>
+              As an ISO Certified company with nationwide delivery, KashmirCart is committed to bringing genuine products from Kashmir directly to your doorstep. Experience the authentic taste, aroma, wellness benefits, and traditions of the Himalayas through our premium collection trusted by customers throughout India.
+            </p>
           </div>
         </div>
 

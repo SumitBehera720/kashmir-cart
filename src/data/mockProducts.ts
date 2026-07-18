@@ -184,5 +184,166 @@ export const mockProducts: Product[] = [
       description: "Elegant wool carpet with traditional Kashmiri designs. Perfect for adding a touch of heritage.",
       keywords: ["Kashmir Carpet", "Woven Rug", "Home Decor"]
     }
+  },
+  {
+    id: "garlic-1",
+    sku: "KSH-GAR-001",
+    name: "Authentic Pahadi Garlic (250g)",
+    slug: "pahadi-garlic",
+    brand: "Kashmir Heritage",
+    description: "Mountain-grown garlic valued for traditional wellness benefits. Sourced from the cold, high-altitude soils of Kashmir, this single-clove garlic is rich in organic compounds.",
+    category: "Spices",
+    images: ["/assets/images/category-placeholder.png"],
+    price: 349,
+    currency: "INR",
+    availability: "in_stock",
+    benefits: ["Supports cardiovascular health", "Boosts immunity", "Powerful natural antioxidant"],
+    ingredients: ["100% Organic Kashmiri Pahadi Garlic"],
+    origin: "Kashmir, India",
+    usage: "Peel and consume one clove raw on an empty stomach daily, or use in culinary preparations.",
+    shippingInformation: "Ships within 24 hours. Sealed for freshness.",
+    seo: {
+      title: "Buy Authentic Pahadi Garlic | Kashmir Heritage",
+      description: "Organic mountain-grown garlic from J&K. Known for traditional wellness and distinct flavor.",
+      keywords: ["Pahadi Garlic", "Kashmiri Garlic", "Organic Garlic"]
+    }
+  },
+  {
+    id: "mushrooms-1",
+    sku: "KSH-GUC-001",
+    name: "Rare Wild Gucci Mushrooms (50g)",
+    slug: "gucci-mushrooms",
+    brand: "Kashmir Heritage",
+    description: "Rare wild Himalayan mushrooms treasured for culinary excellence. Locally known as Gucci, these highly prized morel mushrooms are hand-foraged in the high-altitude forests of the Himalayas.",
+    category: "Wellness",
+    images: ["/assets/images/category-placeholder.png"],
+    price: 4999,
+    currency: "INR",
+    availability: "in_stock",
+    benefits: ["Rich in Vitamin D and B-complex", "Supports immune system", "Exceptional gourmet flavor profile"],
+    ingredients: ["100% Wild Foraged Morel Mushrooms (Morchella Esculenta)"],
+    origin: "Himalayan Forests, Kashmir, India",
+    usage: "Wash thoroughly. Soak in warm water for 20-30 minutes before using in rich gravies or rice dishes.",
+    shippingInformation: "Ships in secure, moisture-proof packaging.",
+    seo: {
+      title: "Buy Rare Wild Gucci Mushrooms Online | Kashmir Heritage",
+      description: "Premium hand-foraged Himalayan morel mushrooms (Gucci). Exceptional gourmet quality.",
+      keywords: ["Gucci Mushrooms", "Morels Online", "Himalayan Mushrooms"]
+    }
+  },
+  {
+    id: "lavender-1",
+    sku: "KSH-LAV-001",
+    name: "Premium Kashmiri Lavender Oil (15ml)",
+    slug: "lavender-oil",
+    brand: "Kashmir Heritage",
+    description: "Premium essential oil distilled from Kashmir lavender fields. Steam-distilled at the peak of bloom to preserve its therapeutic calming aroma.",
+    category: "Wellness",
+    images: ["/assets/images/category-placeholder.png"],
+    price: 599,
+    currency: "INR",
+    availability: "in_stock",
+    benefits: ["Promotes relaxation and better sleep", "Soothes minor skin irritations", "Ideal for aromatherapy"],
+    ingredients: ["100% Pure Steam-Distilled Lavender Essential Oil"],
+    origin: "Lavender Fields, Kashmir, India",
+    usage: "Use 2-3 drops in a room diffuser, or blend with a carrier oil before applying to skin.",
+    shippingInformation: "Ships within 24 hours. Packed in dark amber glass bottle.",
+    seo: {
+      title: "Pure Kashmiri Lavender Essential Oil | Kashmir Heritage",
+      description: "Buy premium steam-distilled lavender oil from Kashmir. 100% pure and therapeutic grade.",
+      keywords: ["Lavender Oil", "Kashmiri Lavender", "Essential Oils"]
+    }
+  },
+  {
+    id: "dried-fruits-1",
+    sku: "KSH-DFR-001",
+    name: "Kashmiri Dried Fruits Assorted (500g)",
+    slug: "kashmiri-dried-fruits",
+    brand: "Kashmir Heritage",
+    description: "Hand-selected dried fruits naturally preserved for freshness. A premium mix of sun-dried valley figs, sweet apricots, and golden raisins.",
+    category: "Dry Fruits",
+    images: ["/assets/images/category-placeholder.png"],
+    price: 799,
+    currency: "INR",
+    availability: "in_stock",
+    benefits: ["High in dietary fiber", "Rich in natural iron and potassium", "Perfect healthy snacking choice"],
+    ingredients: ["Dried Figs", "Dried Apricots", "Dried Raisins"],
+    origin: "Kashmir Valley, India",
+    usage: "Consume as a healthy snack, or add to dessert preparations and breakfast bowls.",
+    shippingInformation: "Ships in vacuum sealed packages.",
+    seo: {
+      title: "Buy Kashmiri Dried Fruits Online | Kashmir Heritage",
+      description: "Naturally preserved sun-dried figs, apricots, and raisins from Kashmir valleys.",
+      keywords: ["Dried Fruits", "Dried Figs", "Dried Apricots", "Kashmiri Dry Fruits"]
+    }
+  },
+  {
+    id: "spices-1",
+    sku: "KSH-SPC-001",
+    name: "Authentic Kashmiri Spices Combo (300g)",
+    slug: "authentic-kashmiri-spices",
+    brand: "Kashmir Heritage",
+    description: "Traditional spices delivering rich aroma and heritage flavour. A selected pack of pure ground ginger, cardamom, and spice blends native to Kashmiri households.",
+    category: "Spices",
+    images: ["/assets/images/category-placeholder.png"],
+    price: 449,
+    currency: "INR",
+    availability: "in_stock",
+    benefits: ["Enhances digestive health", "Rich in bioactive aromatic compounds", "Zero artificial color or preservatives"],
+    ingredients: ["Shahi Zeera", "Cardamom Powder", "Dry Ginger Powder"],
+    origin: "Srinagar, Kashmir, India",
+    usage: "Add to gravies, traditional curries, or tea brews for authentic valley aroma.",
+    shippingInformation: "Packaged in airtight, zip-lock bags.",
+    seo: {
+      title: "Authentic Kashmiri Spices Combo Pack | Kashmir Heritage",
+      description: "Buy traditional ground spices from Kashmir. Packaged to retain natural essential oils and aroma.",
+      keywords: ["Kashmiri Spices", "Shahi Zeera", "Ginger Powder", "Traditional Spices"]
+    }
+  },
+  {
+    id: "berries-1",
+    sku: "KSH-BER-001",
+    name: "Wild Himalayan Berries (200g)",
+    slug: "wild-himalayan-berries",
+    brand: "Kashmir Heritage",
+    description: "Nutrient-dense berries sourced from untouched Himalayan regions. Naturally dried to preserve their intense tart flavor and high concentration of antioxidants.",
+    category: "Wellness",
+    images: ["/assets/images/category-placeholder.png"],
+    price: 499,
+    currency: "INR",
+    availability: "in_stock",
+    benefits: ["Exceptional source of Vitamin C", "Boosts metabolic wellness", "Combats free radical cell damage"],
+    ingredients: ["Wild Seabuckthorn & Himalayan Berries"],
+    origin: "High-Altitude Himalayas, India",
+    usage: "Eat directly as a snack, soak in warm water for herbal infusion, or add to yogurt.",
+    shippingInformation: "Ships in protective stand-up pouches.",
+    seo: {
+      title: "Buy Wild Himalayan Berries Online | Kashmir Heritage",
+      description: "Naturally dried nutrient-dense berries from the high-altitude Himalayan ranges.",
+      keywords: ["Himalayan Berries", "Wild Berries", "Dried Berries", "Antioxidants"]
+    }
+  },
+  {
+    id: "chilli-1",
+    sku: "KSH-CHL-001",
+    name: "Premium Kashmiri Red Chilli Powder (200g)",
+    slug: "kashmiri-red-chilli",
+    brand: "Kashmir Heritage",
+    description: "Famous for vibrant color, mild heat and distinctive flavour. Our chillies are sun-dried and slowly stem-pulled to ensure only the highest color grade and authentic sweet-mild heat.",
+    category: "Spices",
+    images: ["/assets/images/category-placeholder.png"],
+    price: 299,
+    currency: "INR",
+    availability: "in_stock",
+    benefits: ["High in Vitamin A and capsaicin", "Improves digestion", "Gives rich red color to dishes without excess heat"],
+    ingredients: ["100% Pure Kashmiri Red Chilli"],
+    origin: "Kashmir Valley, India",
+    usage: "Use in marinades, curries, and stews for the signature bright red coloring and mild warmth.",
+    shippingInformation: "Ships in airtight, light-blocking pouches.",
+    seo: {
+      title: "Buy Pure Kashmiri Red Chilli Powder | Kashmir Heritage",
+      description: "Authentic mild Kashmiri Lal Mirch powder. 100% natural, sun-dried, deep crimson color.",
+      keywords: ["Kashmiri Chilli", "Red Chilli Powder", "Lal Mirch", "Mild Chilli"]
+    }
   }
 ];
